@@ -1,0 +1,96 @@
+{
+ "data": {
+  "header": {
+   "corpImageTop": {
+    "imageUrl": "https://static.104.com.tw/b_profile/cust_picture/1666/130000000271666/custintroduce/image2.jpg?v=20260715162255",
+    "link": ""
+   },
+   "jobName": "AI工程師",
+   "appearDate": "2026/07/16",
+   "custName": "龍游軟體有限公司",
+   "custUrl": "https://www.104.com.tw/company/1a2x6bnsxe",
+   "analysisType": 1,
+   "analysisUrl": "//www.104.com.tw/jobs/apply/analysis/93qqs",
+   "isSaved": false,
+   "isFollowed": false,
+   "isApplied": false,
+   "applyDate": "",
+   "userApplyCount": 0,
+   "hrBehaviorPR": 0.99
+  },
+  "condition": {
+   "acceptRole": {
+    "role": [],
+    "disRole": {
+     "needHandicapCompendium": false,
+     "disability": []
+    }
+   },
+   "workExp": "1年以上",
+   "edu": "專科、大學、碩士",
+   "major": [],
+   "language": [],
+   "localLanguage": [],
+   "specialty": [],
+   "skill": [
+    {
+     "code": "11009005012",
+     "description": "AI"
+    },
+    {
+     "code": "11009005016",
+     "description": "生成式AI"
+    }
+   ],
+   "certificate": [],
+   "driverLicense": [],
+   "other": "加分項~\n\n01. 有成功搭建過「影片批量生成」或「自媒體矩陣自動化」實際落地案例者(請附上作品、Github 或工作流架構說明)。\n\n02. 熟悉數位人(Digital Human)生成與即時驅動(Webcam/Audio-driven，如 SadTalker, LivePortrait)相關技術。\n\n03. 熟悉傳統剪輯軟體自動化導入(如 AE 腳本、Premiere 插件或剪映草稿協議分析)者優先。\n\n\n\n\n\n職務需求 (Job Requirements)\n\n01. 程式開發能力：\n精通 Python，具備強大的 API 整合能力，能熟練處理自動化腳本、音視頻處理(如 FFmpeg, MoviePy 等)與資料流。\n\n02. AI 工具鏈精通：\n熟練掌握 Stable Diffusion / ComfyUI / WebUI(有複雜節點式工作流搭建經驗者優先)。\n熟悉主流 AI 影片生成工具(如 Runway, Pika, Kling, Luma 等)及語音合成(TTS)技術(如 CosyVoice, ChatTTS)。\n\n03. 基礎設施與架構：\n熟悉地端(Local)AI 模型布署(如 Ollama, Docker)，以及 GPU 伺服器的效能調校與算力分配。\n\n\n"
+  },
+  "jobDetail": {
+   "jobDescription": "01.) 系統搭建與工作流整合：\n負責規劃與搭建 AI 影片批量生產的工作流（如, 使用 ComfyUI、LangChain、n8n 等工具）。\n建立標準化、可複製的矩陣式影片產出系統。\n\n02.) 自動化流程開發：\n編寫 Python 腳本對接各類 AI API（文本生成、TTS 語音合成、SD/Midjourney 圖像生成、Sora/Runway/Kling 影片生成）。\n實現「文案 → 分鏡 → 配音 → 影片 → 字幕」的一鍵式或自動化批量產出與渲染。\n\n03.) 模型微調與品質控制：\n針對特定帳號風格（如, 知識口播、數位人、動漫、2.5D）進行 LoRA 模型訓練或 ControlNet 精准控制。\n解決批量生成中的「畫面閃爍」、「邏輯不連貫」、「人臉崩壞」等技術痛點，確保輸出品質穩定。\n\n04.) 技術調研與前沿迭代：\n持續追蹤全球最前沿的 AI 影音、數位人（Digital Human）與影片生成技術，並快速導入現有生產線。\n",
+   "jobCategory": [
+    {
+     "code": "2007001020",
+     "description": "AI工程師"
+    },
+    {
+     "code": "2007001012",
+     "description": "演算法工程師"
+    },
+    {
+     "code": "2007001021",
+     "description": "資料科學家"
+    }
+   ],
+   "salary": "待遇面議",
+   "salaryMin": 0,
+   "salaryMax": 0,
+   "salaryType": 10,
+   "jobType": 1,
+   "workType": [],
+   "addressNo": "6001001010",
+   "addressRegion": "台北市內湖區",
+   "addressArea": "台北市",
+   "addressDetail": "",
+   "industryArea": "內湖科技園區",
+   "longitude": "121.5909027",
+   "latitude": "25.0689422",
+   "manageResp": "不需負擔管理責任",
+   "businessTrip": "無需出差外派",
+   "workPeriod": {
+    "shifts": {
+     "日班": []
+    },
+    "note": ""
+   },
+   "workPeriodTags": [],
+   "vacationPolicy": "週休二日",
+   "startWorkingDay": "不限",
+   "hireType": 0,
+   "delegatedRecruit": "",
+   "needEmp": "1人",
+   "landmark": "",
+   "remoteWork": null
+  }
+ }
+}
