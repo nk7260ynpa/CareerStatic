@@ -1,0 +1,289 @@
+/* CareerStatic 儀表板樣式 */
+
+:root {
+  --primary: #4f46e5;
+  --primary-dark: #4338ca;
+  --bg: #f4f5fb;
+  --panel-bg: #ffffff;
+  --text: #1f2437;
+  --text-muted: #6b7280;
+  --border: #e5e7f0;
+  --shadow: 0 1px 3px rgba(30, 41, 92, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", system-ui,
+    -apple-system, sans-serif;
+  line-height: 1.6;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* === 頁首 === */
+.topbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 28px;
+  background: linear-gradient(120deg, #3730a3, #4f46e5 55%, #6366f1);
+  color: #fff;
+}
+
+.brand h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  letter-spacing: 0.5px;
+}
+
+.brand .subtitle {
+  font-size: 0.85rem;
+  opacity: 0.85;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+}
+
+.controls select {
+  padding: 6px 10px;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+.controls button {
+  padding: 7px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.controls button:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.controls button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* === 主內容 === */
+main {
+  max-width: 1180px;
+  margin: 24px auto 40px;
+  padding: 0 20px;
+}
+
+.empty {
+  margin-top: 60px;
+  text-align: center;
+  color: var(--text-muted);
+}
+
+.empty code {
+  background: #e8eaf6;
+  padding: 2px 8px;
+  border-radius: 6px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.card {
+  background: var(--panel-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px 18px;
+  box-shadow: var(--shadow);
+}
+
+.card-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.card-value {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+}
+
+.panel {
+  background: var(--panel-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin-bottom: 18px;
+  box-shadow: var(--shadow);
+}
+
+.panel h2 {
+  margin: 0 0 12px;
+  font-size: 1.05rem;
+}
+
+.summary-text {
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-family: inherit;
+  font-size: 0.95rem;
+  background: #f8f9ff;
+  border-radius: 8px;
+  padding: 14px 16px;
+}
+
+/* === 圖表 === */
+.charts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+.chart-panel.wide {
+  grid-column: 1 / -1;
+}
+
+.chart-box {
+  position: relative;
+  height: 300px;
+}
+
+.chart-box.tall {
+  height: 420px;
+}
+
+@media (max-width: 860px) {
+  .charts-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* === 職缺列表 === */
+.jobs-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.jobs-header input {
+  padding: 7px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  min-width: 220px;
+  font-size: 0.9rem;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 9px 10px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+
+th {
+  color: var(--text-muted);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+td a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+td a:hover {
+  text-decoration: underline;
+}
+
+.tag {
+  display: inline-block;
+  margin: 1px 3px 1px 0;
+  padding: 1px 8px;
+  background: #eef0ff;
+  color: var(--primary-dark);
+  border-radius: 999px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+}
+
+.pager {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 14px;
+  font-size: 0.9rem;
+}
+
+.pager button {
+  padding: 6px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fff;
+  cursor: pointer;
+}
+
+.pager button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* === 頁尾與提示 === */
+footer {
+  max-width: 1180px;
+  margin: 0 auto 30px;
+  padding: 0 20px;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+
+.toast {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  max-width: 340px;
+  background: #1f2437;
+  color: #fff;
+  padding: 12px 18px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  z-index: 50;
+}

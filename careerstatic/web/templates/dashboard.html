@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+
+{% block content %}
+<header class="topbar">
+  <div class="brand">
+    <h1>CareerStatic</h1>
+    <span class="subtitle">104 AI 職缺技能儀表板</span>
+  </div>
+  <div class="controls">
+    <label for="date-select">資料日期</label>
+    <select id="date-select" aria-label="選擇資料日期"></select>
+    <button id="crawl-btn" type="button">立即更新資料</button>
+  </div>
+</header>
+
+<main>
+  <div id="empty-state" class="empty hidden">
+    <p>尚無統計資料。</p>
+    <p>請先執行一次爬取：<code>./run.sh crawl --max-pages 2 --detail-limit 10</code>，或按右上角「立即更新資料」。</p>
+  </div>
+
+  <div id="dashboard-body" class="hidden">
+    <section class="cards">
+      <div class="card">
+        <div class="card-label">總職缺數</div>
+        <div class="card-value" id="stat-total">–</div>
+      </div>
+      <div class="card">
+        <div class="card-label">新增職缺</div>
+        <div class="card-value" id="stat-new">–</div>
+      </div>
+      <div class="card">
+        <div class="card-label">詳細資料涵蓋率</div>
+        <div class="card-value" id="stat-coverage">–</div>
+      </div>
+      <div class="card">
+        <div class="card-label">資料日期</div>
+        <div class="card-value" id="stat-date">–</div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>每日總結</h2>
+      <pre id="summary-text" class="summary-text"></pre>
+    </section>
+
+    <section class="charts-grid">
+      <div class="panel chart-panel wide">
+        <h2>30 日職缺數趨勢</h2>
+        <div class="chart-box"><canvas id="chart-trend"></canvas></div>
+      </div>
+      <div class="panel chart-panel">
+        <h2>熱門擅長工具 Top 15</h2>
+        <div class="chart-box tall"><canvas id="chart-specialty"></canvas></div>
+      </div>
+      <div class="panel chart-panel">
+        <h2>內文技術關鍵字 Top 15</h2>
+        <div class="chart-box tall"><canvas id="chart-keyword"></canvas></div>
+      </div>
+      <div class="panel chart-panel">
+        <h2>工作技能 Top 10</h2>
+        <div class="chart-box tall"><canvas id="chart-skill"></canvas></div>
+      </div>
+      <div class="panel chart-panel half">
+        <h2>學歷門檻分布</h2>
+        <div class="chart-box"><canvas id="chart-edu"></canvas></div>
+      </div>
+      <div class="panel chart-panel half">
+        <h2>經歷要求分布</h2>
+        <div class="chart-box"><canvas id="chart-exp"></canvas></div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="jobs-header">
+        <h2>職缺列表</h2>
+        <input id="job-search" type="search" placeholder="搜尋職稱或公司…" aria-label="搜尋職缺">
+      </div>
+      <div class="table-wrap">
+        <table id="jobs-table">
+          <thead>
+            <tr>
+              <th>職缺</th>
+              <th>公司</th>
+              <th>地區</th>
+              <th>薪資</th>
+              <th>技術關鍵字</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <div class="pager">
+        <button id="prev-page" type="button">上一頁</button>
+        <span id="page-info"></span>
+        <button id="next-page" type="button">下一頁</button>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  資料來源：104 人力銀行公開職缺資訊（僅供個人研究）。統計母體為每日可見樣本，詳見附註。
+</footer>
+
+<div id="toast" class="toast hidden"></div>
+{% endblock %}
+
+{% block scripts %}
+<script src="/static/js/dashboard.js"></script>
+{% endblock %}
