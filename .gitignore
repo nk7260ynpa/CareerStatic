@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.venv/
+venv/
+
+# 環境變數
+.env
+
+# Log 檔
+logs/*
+!logs/.gitkeep
+*.log
+
+# 本機資料庫檔案（SQLite）
+data/
+*.db
+
+# 規劃工作檔
+plans/
+
+# macOS
+.DS_Store
