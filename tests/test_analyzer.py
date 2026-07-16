@@ -76,8 +76,11 @@ class TestCodeMaps:
     def test_experience_level_prefers_detail_text(self):
         assert experience_level(2, "3年以上") == "3年以上"
         assert experience_level(0, None) == "不拘"
-        assert experience_level(2, None) == "1年以上"  # 已實測 period=2 ↔ 1年以上
-        assert experience_level(7, None) == "代碼7"
+        # 已以真實 detail 文字驗證：period=n ↔ (n-1) 年以上
+        assert experience_level(2, None) == "1年以上"
+        assert experience_level(4, None) == "3年以上"
+        assert experience_level(7, None) == "6年以上"
+        assert experience_level(99, None) == "代碼99"
 
     def test_language_names(self):
         assert language_names([1, 18]) == ["英文", "中文"]
