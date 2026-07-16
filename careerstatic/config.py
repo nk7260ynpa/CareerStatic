@@ -89,7 +89,7 @@ def get_settings() -> Settings:
         max_delay=float(os.getenv("MAX_DELAY_SECONDS", "2.8")),
         enable_scheduler=_env_bool("ENABLE_SCHEDULER", True),
         run_on_startup=_env_bool("RUN_ON_STARTUP", True),
-        crawl_hour=int(os.getenv("CRAWL_HOUR", "8")),
+        crawl_hour=int(os.getenv("CRAWL_HOUR", "20")),
         stats_top_n=int(os.getenv("STATS_TOP_N", "100")),
         log_level=os.getenv("LOG_LEVEL", "INFO"),
         web_port=int(os.getenv("WEB_PORT", "8000")),

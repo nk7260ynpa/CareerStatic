@@ -1,6 +1,6 @@
 # CareerStatic 開發指南
 
-104 人力銀行 AI 職缺每日爬取（08:00 Asia/Taipei）→ PostgreSQL →
+104 人力銀行 AI 職缺每日爬取（20:00 Asia/Taipei）→ PostgreSQL →
 工作能力統計 → FastAPI + Chart.js 儀表板。
 
 ## 常用指令

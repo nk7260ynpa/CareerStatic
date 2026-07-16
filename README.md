@@ -5,7 +5,7 @@
 
 ## 功能特色
 
-- **每日排程**：每天 08:00（Asia/Taipei）自動爬取；服務啟動時若當日尚未爬取會自動補跑。
+- **每日排程**：每天 20:00（Asia/Taipei）自動爬取；服務啟動時若當日尚未爬取會自動補跑。
 - **多關鍵字聯集**：以可設定的關鍵字全文搜尋（預設 AI、人工智慧、機器學習…），依職缺編號去重。
 - **兩階段爬取**：列表 API 取基本欄位，詳細 API 補齊工作技能／擅長工具／完整描述；
   只對新職缺抓詳細內容，並有每日上限（首日積壓自動分日消化）。
@@ -16,7 +16,7 @@
 ## 專案架構
 
 ```
-APScheduler（每日 08:00 Asia/Taipei，與 Web 同容器）
+APScheduler（每日 20:00 Asia/Taipei，與 Web 同容器）
     └─> pipeline.run_daily_crawl()
           ├─ Client104（curl_cffi 模擬 Chrome、節流 1.2~2.8s、指數退避重試）
           │    ├─ 列表：多關鍵字 × 分頁 → 以 jobNo 聯集去重
@@ -109,7 +109,7 @@ open http://localhost:8000
 | `CRAWL_KEYWORDS` | AI,人工智慧,機器學習,… | 搜尋關鍵字（逗號分隔） |
 | `MAX_PAGES_PER_KEYWORD` | 50 | 每關鍵字最大頁數（API 上限 150） |
 | `DETAIL_LIMIT_PER_DAY` | 600 | 每日詳細內容抓取上限 |
-| `CRAWL_HOUR` | 8 | 每日排程整點（Asia/Taipei） |
+| `CRAWL_HOUR` | 20 | 每日排程整點（Asia/Taipei） |
 | `MIN_DELAY_SECONDS` / `MAX_DELAY_SECONDS` | 1.2 / 2.8 | 每次請求前的隨機延遲 |
 | `RUN_ON_STARTUP` | true | 啟動時當日未爬取則補跑 |
 | `STATS_TOP_N` | 100 | 每類別每日入庫項目數上限 |
@@ -119,7 +119,7 @@ open http://localhost:8000
 ## 排程與資料說明
 
 - **排程觸發條件**：Mac 需開機且 Docker 正在執行。容器設 `restart: unless-stopped`，
-  Docker 啟動後服務自動復活；錯過 08:00 時（4 小時內）會補跑，超過則由
+  Docker 啟動後服務自動復活；錯過 20:00 時（4 小時內）會補跑，超過則由
   `RUN_ON_STARTUP` 在下次服務啟動時補當日資料。建議把 Docker Desktop 設為登入自動啟動。
 - **樣本非母體**：104 列表 API 最多翻 150 頁（約 3,300 筆／關鍵字）。熱門關鍵字
   （如「AI」約 2.5 萬筆）超出可翻頁範圍時，統計母體為「當日可見樣本」；
